@@ -1,0 +1,266 @@
+[
+  {
+    "id": "q01",
+    "language": "en",
+    "question": "What services does Zalvantic offer?",
+    "expected_source": "services"
+  },
+  {
+    "id": "q02",
+    "language": "en",
+    "question": "What does the AI Integration service include?",
+    "expected_source": "services-ai-integration"
+  },
+  {
+    "id": "q03",
+    "language": "en",
+    "question": "Can you build a chatbot using OpenAI or Anthropic models?",
+    "expected_source": "services-ai-integration"
+  },
+  {
+    "id": "q04",
+    "language": "en",
+    "question": "Do you build RAG systems for company documents?",
+    "expected_source": "services-ai-integration"
+  },
+  {
+    "id": "q05",
+    "language": "en",
+    "question": "Can you automate data entry and reporting for my business?",
+    "expected_source": "services-business-automation"
+  },
+  {
+    "id": "q06",
+    "language": "en",
+    "question": "Can you connect my CRM or ERP system with other tools?",
+    "expected_source": "services-business-automation"
+  },
+  {
+    "id": "q07",
+    "language": "en",
+    "question": "Do you build custom scripts and bots for repetitive tasks?",
+    "expected_source": "services-business-automation"
+  },
+  {
+    "id": "q08",
+    "language": "en",
+    "question": "Do you build REST and GraphQL APIs?",
+    "expected_source": "services-api-development"
+  },
+  {
+    "id": "q09",
+    "language": "en",
+    "question": "Can you secure my API with OAuth or JWT login?",
+    "expected_source": "services-api-development"
+  },
+  {
+    "id": "q10",
+    "language": "en",
+    "question": "Do you build backends with FastAPI?",
+    "expected_source": "services-fastapi-development"
+  },
+  {
+    "id": "q11",
+    "language": "en",
+    "question": "Can you build my web application with Django?",
+    "expected_source": "services-django-development"
+  },
+  {
+    "id": "q12",
+    "language": "en",
+    "question": "Do you use Flask for small projects and quick prototypes?",
+    "expected_source": "services-flask-development"
+  },
+  {
+    "id": "q13",
+    "language": "en",
+    "question": "Can you build a SaaS platform with subscriptions and billing?",
+    "expected_source": "services-saas-development"
+  },
+  {
+    "id": "q14",
+    "language": "en",
+    "question": "Do you develop mobile apps for iOS and Android?",
+    "expected_source": "services-software-development"
+  },
+  {
+    "id": "q15",
+    "language": "en",
+    "question": "Can you build an online store with Shopify or WooCommerce?",
+    "expected_source": "services-web-development"
+  },
+  {
+    "id": "q16",
+    "language": "en",
+    "question": "Can you connect my website to a CMS like WordPress or Strapi?",
+    "expected_source": "services-web-development"
+  },
+  {
+    "id": "q17",
+    "language": "en",
+    "question": "Do you modernize old legacy systems?",
+    "expected_source": "services-custom-software-development"
+  },
+  {
+    "id": "q18",
+    "language": "en",
+    "question": "Do you set up CI/CD and DevOps pipelines?",
+    "expected_source": "services-custom-software-development"
+  },
+  {
+    "id": "q19",
+    "language": "en",
+    "question": "Can you help me choose the right technology stack for my product?",
+    "expected_source": "services-technical-consulting"
+  },
+  {
+    "id": "q20",
+    "language": "en",
+    "question": "Do you design UI and UX for web and mobile apps?",
+    "expected_source": "services-ui-ux-design"
+  },
+  {
+    "id": "q21",
+    "language": "en",
+    "question": "Can you design a logo and brand guidelines for my company?",
+    "expected_source": "services-branding"
+  },
+  {
+    "id": "q22",
+    "language": "en",
+    "question": "Do you offer support after the project is launched?",
+    "expected_source": "services-digital-solutions"
+  },
+  {
+    "id": "q23",
+    "language": "en",
+    "question": "Can I see examples of projects Zalvantic has built?",
+    "expected_source": "work"
+  },
+  {
+    "id": "q24",
+    "language": "en",
+    "question": "Have you built an AI travel assistant before?",
+    "expected_source": "work"
+  },
+  {
+    "id": "q25",
+    "language": "en",
+    "question": "Do you handle hosting, servers and SSL for business websites?",
+    "expected_source": "work"
+  },
+  {
+    "id": "q26",
+    "language": "en",
+    "question": "Who is the founder of Zalvantic?",
+    "expected_source": "about"
+  },
+  {
+    "id": "q27",
+    "language": "en",
+    "question": "How fast does the team reply to a new enquiry?",
+    "expected_source": "contact"
+  },
+  {
+    "id": "q28",
+    "language": "en",
+    "question": "How can I contact Zalvantic by email or WhatsApp?",
+    "expected_source": "contact"
+  },
+  {
+    "id": "q29",
+    "language": "en",
+    "question": "Who owns the code after the project is finished and paid?",
+    "expected_source": "terms"
+  },
+  {
+    "id": "q30",
+    "language": "en",
+    "question": "Do I need to pay a deposit before the work starts?",
+    "expected_source": "terms"
+  },
+  {
+    "id": "q31",
+    "language": "en",
+    "question": "How does Zalvantic protect my personal data?",
+    "expected_source": "privacy"
+  },
+  {
+    "id": "q32",
+    "language": "en",
+    "question": "Will you keep my business and project details confidential?",
+    "expected_source": "terms"
+  },
+  {
+    "id": "q33",
+    "language": "roman_ur",
+    "question": "Zalvantic kya kya services deta hai?",
+    "expected_source": "services"
+  },
+  {
+    "id": "q34",
+    "language": "roman_ur",
+    "question": "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+    "expected_source": "services-ai-integration"
+  },
+  {
+    "id": "q35",
+    "language": "roman_ur",
+    "question": "Mujhe apna kaam automate karwana hai, aap kya kya kar dete hain?",
+    "expected_source": "services-business-automation"
+  },
+  {
+    "id": "q36",
+    "language": "roman_ur",
+    "question": "Kya aap FastAPI mein API bana sakte hain?",
+    "expected_source": "services-fastapi-development"
+  },
+  {
+    "id": "q37",
+    "language": "roman_ur",
+    "question": "Mujhe website banwani hai, kya aap responsive website banate hain?",
+    "expected_source": "services-web-development"
+  },
+  {
+    "id": "q38",
+    "language": "roman_ur",
+    "question": "Kya aap logo aur brand design bhi karte hain?",
+    "expected_source": "services-branding"
+  },
+  {
+    "id": "q39",
+    "language": "roman_ur",
+    "question": "Aap se rabta kaise kar sakta hoon, WhatsApp number kya hai?",
+    "expected_source": "contact"
+  },
+  {
+    "id": "q40",
+    "language": "roman_ur",
+    "question": "Message karne ke baad kitne ghante mein jawab milta hai?",
+    "expected_source": "contact"
+  },
+  {
+    "id": "q41",
+    "language": "roman_ur",
+    "question": "Project complete hone ke baad code kis ka hota hai?",
+    "expected_source": "terms"
+  },
+  {
+    "id": "q42",
+    "language": "roman_ur",
+    "question": "Kya mera data aur personal information mehfooz rahegi?",
+    "expected_source": "privacy"
+  },
+  {
+    "id": "q43",
+    "language": "roman_ur",
+    "question": "Aap ne ab tak kaun kaun se projects banaye hain?",
+    "expected_source": "work"
+  },
+  {
+    "id": "q44",
+    "language": "roman_ur",
+    "question": "Zalvantic ke founder kaun hain aur team kaisi hai?",
+    "expected_source": "about"
+  }
+]
