@@ -31,3 +31,45 @@ Both strategies miss the same 7 questions (support after launch, code ownership,
 - There are only 12 Roman Urdu questions and 44 in total, so one question moves the Roman Urdu score by about 8 points. A gap of one or two questions should not be read as a real difference.
 - The systems miss different questions. BM25 misses 3 that e5 finds (the REST and GraphQL APIs question and two Roman Urdu ones), e5 misses 5 that BM25 finds (3 of them in Roman Urdu), and 3 questions are missed by both (support after launch, and reply time in English and Roman Urdu). The ones e5 misses probably contain exact words like chatbot, automate and WhatsApp, which BM25 matches directly.
 - No system wins everywhere. BM25 is better with exact words and e5 is better at ranking by meaning, so a hybrid of the two (Week 4) is the natural next step.
+
+## Week 4: hybrid search and reranking
+
+44 questions (32 English, 12 Roman Urdu), 296 heading chunks. RRF fuses the top 20 of each retriever. ms / query includes searching the top 10 (vector systems also embed the query).
+
+<!-- week4-table:start -->
+| System | R@5 all | R@5 English | R@5 Roman Urdu | MRR all | ms / query |
+|---|---|---|---|---|---|
+| BM25 | 0.864 | 0.906 | 0.750 | 0.646 | 1.6 |
+| e5-small (vector) | 0.818 | 0.875 | 0.667 | 0.653 | 59.7 |
+| Hybrid BM25 + e5 (rrf_k=60) | 0.864 | 0.906 | 0.750 | 0.649 | 44.8 |
+| Hybrid BM25 + e5 (rrf_k=10) | 0.864 | 0.906 | 0.750 | 0.658 | 41.0 |
+| Hybrid BM25 + MiniLM (rrf_k=60) | 0.886 | 0.938 | 0.750 | 0.596 | 22.6 |
+| Hybrid BM25 + e5 + MiniLM (rrf_k=60) | 0.818 | 0.906 | 0.583 | 0.644 | 61.5 |
+| Hybrid BM25 + e5 + rerank | 0.909 | 0.906 | 0.917 | 0.549 | 2136.6 |
+<!-- week4-table:end -->
+
+
+### Final choice
+
+I am going with **Hybrid BM25 + multilingual-e5-small, RRF with rrf_k=10 and depth 20**.
+
+| Setup | R@5 | MRR | ms / query |
+|---|---|---|---|
+| BM25 alone | 0.864 | 0.646 | 1.6 |
+| e5-small alone | 0.818 | 0.653 | 59.7 |
+| **Hybrid BM25 + e5 (rrf_k=10)** | **0.864** | **0.658** | **41.0** |
+| Hybrid BM25 + e5 + rerank | 0.909 | 0.549 | 2136.6 |
+
+Recall@5 is 0.864, so the 0.80 target is reached.
+
+Why this one:
+- Hybrid keeps the BM25 recall (0.864) and has the best MRR of the fast setups (0.658), so the right chunk lands higher in the list.
+- Roman Urdu stays at 0.750, the same as BM25, while the vector side helps when a question does not share exact words with the chunk.
+- It costs about 41 ms per query, which is fine for a chatbot.
+
+Why not the others:
+- The cross-encoder reranker (ms-marco-MiniLM) gave the best recall (0.909) but the MRR fell from 0.658 to 0.549 and it took around 2.1 seconds per query. That is far too slow for streaming answers, and the model is trained on English only.
+- BM25 + MiniLM reached 0.886 recall but its MRR is only 0.596, and Roman Urdu did not improve.
+- Adding both embedding models together (0.818) was worse, so more retrievers is not always better.
+
+Honest caveat: there are only 44 questions, so one question is about 2.3 points. The differences between the top setups are 1 to 2 questions and could be noise. I would check this again once the knowledge base grows.

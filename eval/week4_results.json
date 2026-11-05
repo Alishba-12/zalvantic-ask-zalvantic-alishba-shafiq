@@ -1,0 +1,192 @@
+{
+  "chunks": 296,
+  "k": 10,
+  "depth": 20,
+  "results": {
+    "BM25": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8636,
+        "mrr": 0.6456
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.6443
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.75,
+        "mrr": 0.6493
+      },
+      "ms_per_query": 1.6
+    },
+    "e5-small (vector)": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8182,
+        "mrr": 0.6535
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.875,
+        "mrr": 0.6962
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.6667,
+        "mrr": 0.5397
+      },
+      "ms_per_query": 59.7
+    },
+    "Hybrid BM25 + e5 (rrf_k=60)": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8636,
+        "mrr": 0.6489
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.7096
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.75,
+        "mrr": 0.4869
+      },
+      "ms_per_query": 44.8
+    },
+    "Hybrid BM25 + e5 (rrf_k=10)": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8636,
+        "mrr": 0.6578
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.7174
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.75,
+        "mrr": 0.4988
+      },
+      "ms_per_query": 41.0
+    },
+    "Hybrid BM25 + MiniLM (rrf_k=60)": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8864,
+        "mrr": 0.5955
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9375,
+        "mrr": 0.6589
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.75,
+        "mrr": 0.4264
+      },
+      "ms_per_query": 22.6
+    },
+    "Hybrid BM25 + e5 + MiniLM (rrf_k=60)": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8182,
+        "mrr": 0.6444
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.7292
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.5833,
+        "mrr": 0.4185
+      },
+      "ms_per_query": 61.5
+    },
+    "Hybrid BM25 + e5 + rerank": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.9091,
+        "mrr": 0.5487
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.543
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.9167,
+        "mrr": 0.5639
+      },
+      "ms_per_query": 2136.6
+    }
+  },
+  "misses_at_5": {
+    "BM25": [
+      "Do you build REST and GraphQL APIs?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Mujhe website banwani hai, kya aap responsive website banate hain?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?"
+    ],
+    "e5-small (vector)": [
+      "Do you modernize old legacy systems?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Mujhe apna kaam automate karwana hai, aap kya kya kar dete hain?",
+      "Aap se rabta kaise kar sakta hoon, WhatsApp number kya hai?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?"
+    ],
+    "Hybrid BM25 + e5 (rrf_k=60)": [
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?"
+    ],
+    "Hybrid BM25 + e5 (rrf_k=10)": [
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?"
+    ],
+    "Hybrid BM25 + MiniLM (rrf_k=60)": [
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?",
+      "Aap ne ab tak kaun kaun se projects banaye hain?"
+    ],
+    "Hybrid BM25 + e5 + MiniLM (rrf_k=60)": [
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Aap se rabta kaise kar sakta hoon, WhatsApp number kya hai?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?",
+      "Aap ne ab tak kaun kaun se projects banaye hain?"
+    ],
+    "Hybrid BM25 + e5 + rerank": [
+      "Do you design UI and UX for web and mobile apps?",
+      "Can I see examples of projects Zalvantic has built?",
+      "How fast does the team reply to a new enquiry?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?"
+    ]
+  }
+}
