@@ -1,0 +1,38 @@
+{
+  "heading": {
+    "chunks": 296,
+    "hit@3": 0.8182,
+    "misses": [
+      "What does the AI Integration service include?",
+      "Do you build REST and GraphQL APIs?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Mujhe website banwani hai, kya aap responsive website banate hain?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?"
+    ],
+    "params": {}
+  },
+  "fixed": {
+    "chunks": 119,
+    "hit@3": 0.75,
+    "misses": [
+      "What does the AI Integration service include?",
+      "Do you build RAG systems for company documents?",
+      "Do you build REST and GraphQL APIs?",
+      "Can you connect my website to a CMS like WordPress or Strapi?",
+      "Do you offer support after the project is launched?",
+      "Can I see examples of projects Zalvantic has built?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Mujhe website banwani hai, kya aap responsive website banate hain?",
+      "Project complete hone ke baad code kis ka hota hai?",
+      "Aap ne ab tak kaun kaun se projects banaye hain?"
+    ],
+    "params": {
+      "size": 120,
+      "overlap": 30
+    }
+  }
+}
