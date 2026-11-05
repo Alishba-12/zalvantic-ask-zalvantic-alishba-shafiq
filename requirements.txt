@@ -2,3 +2,9 @@ requests
 beautifulsoup4
 pytest
 rank-bm25
+numpy
+faiss-cpu
+sentence-transformers
+numpy
+faiss-cpu
+sentence-transformers

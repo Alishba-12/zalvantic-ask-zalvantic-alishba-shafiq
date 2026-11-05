@@ -1,0 +1,88 @@
+{
+  "chunks": 296,
+  "k": 10,
+  "results": {
+    "BM25": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8636,
+        "mrr": 0.6456
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.6443
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.75,
+        "mrr": 0.6493
+      }
+    },
+    "all-MiniLM-L6-v2": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.7955,
+        "mrr": 0.5535
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.9062,
+        "mrr": 0.6052
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.5,
+        "mrr": 0.4155
+      }
+    },
+    "multilingual-e5-small": {
+      "all": {
+        "n": 44,
+        "recall@5": 0.8182,
+        "mrr": 0.6535
+      },
+      "english": {
+        "n": 32,
+        "recall@5": 0.875,
+        "mrr": 0.6962
+      },
+      "roman_urdu": {
+        "n": 12,
+        "recall@5": 0.6667,
+        "mrr": 0.5397
+      }
+    }
+  },
+  "misses_at_5": {
+    "BM25": [
+      "Do you build REST and GraphQL APIs?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Mujhe website banwani hai, kya aap responsive website banate hain?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?"
+    ],
+    "all-MiniLM-L6-v2": [
+      "Do you build RAG systems for company documents?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Mujhe apna kaam automate karwana hai, aap kya kya kar dete hain?",
+      "Aap se rabta kaise kar sakta hoon, WhatsApp number kya hai?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?",
+      "Aap ne ab tak kaun kaun se projects banaye hain?"
+    ],
+    "multilingual-e5-small": [
+      "Do you modernize old legacy systems?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Mujhe apna kaam automate karwana hai, aap kya kya kar dete hain?",
+      "Aap se rabta kaise kar sakta hoon, WhatsApp number kya hai?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?"
+    ]
+  }
+}
