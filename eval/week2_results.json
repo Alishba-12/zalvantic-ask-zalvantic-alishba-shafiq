@@ -1,0 +1,62 @@
+{
+  "heading": {
+    "chunks": 196,
+    "hit@3": 0.7727,
+    "misses": [
+      "What services does Zalvantic offer?",
+      "What does the AI Integration service include?",
+      "Do you build REST and GraphQL APIs?",
+      "Do you offer support after the project is launched?",
+      "How fast does the team reply to a new enquiry?",
+      "Who owns the code after the project is finished and paid?",
+      "Zalvantic kya kya services deta hai?",
+      "Mujhe website banwani hai, kya aap responsive website banate hain?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?"
+    ],
+    "params": {}
+  },
+  "fixed": {
+    "chunks": 82,
+    "hit@3": 0.25,
+    "misses": [
+      "What does the AI Integration service include?",
+      "Can you build a chatbot using OpenAI or Anthropic models?",
+      "Do you build RAG systems for company documents?",
+      "Can you automate data entry and reporting for my business?",
+      "Can you connect my CRM or ERP system with other tools?",
+      "Do you build custom scripts and bots for repetitive tasks?",
+      "Do you build REST and GraphQL APIs?",
+      "Can you secure my API with OAuth or JWT login?",
+      "Can you build my web application with Django?",
+      "Do you use Flask for small projects and quick prototypes?",
+      "Can you build a SaaS platform with subscriptions and billing?",
+      "Do you develop mobile apps for iOS and Android?",
+      "Can you build an online store with Shopify or WooCommerce?",
+      "Can you connect my website to a CMS like WordPress or Strapi?",
+      "Do you modernize old legacy systems?",
+      "Do you set up CI/CD and DevOps pipelines?",
+      "Can you help me choose the right technology stack for my product?",
+      "Do you design UI and UX for web and mobile apps?",
+      "Can you design a logo and brand guidelines for my company?",
+      "Do you offer support after the project is launched?",
+      "Can I see examples of projects Zalvantic has built?",
+      "How fast does the team reply to a new enquiry?",
+      "How can I contact Zalvantic by email or WhatsApp?",
+      "Zalvantic kya kya services deta hai?",
+      "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+      "Mujhe apna kaam automate karwana hai, aap kya kya kar dete hain?",
+      "Kya aap FastAPI mein API bana sakte hain?",
+      "Mujhe website banwani hai, kya aap responsive website banate hain?",
+      "Kya aap logo aur brand design bhi karte hain?",
+      "Aap se rabta kaise kar sakta hoon, WhatsApp number kya hai?",
+      "Message karne ke baad kitne ghante mein jawab milta hai?",
+      "Project complete hone ke baad code kis ka hota hai?",
+      "Aap ne ab tak kaun kaun se projects banaye hain?"
+    ],
+    "params": {
+      "size": 120,
+      "overlap": 30
+    }
+  }
+}
