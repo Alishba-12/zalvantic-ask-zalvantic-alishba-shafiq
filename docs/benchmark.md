@@ -1,3 +1,2 @@
-# Benchmark
-
-Results are added from week 2 (BM25 hit@3) onwards.
+# Week 2 Benchmark
+Benchmarking results of chunking and BM25 retrievers.

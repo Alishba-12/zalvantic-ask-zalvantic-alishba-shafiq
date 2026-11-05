@@ -2,13 +2,12 @@ import argparse
 import json
 from pathlib import Path
 
-from .chunking import build_chunks, load_docs
-from .search import BM25Index
+from .chunk import build_chunks, load_docs
+from .bm25 import BM25Index
 
 SRC_KEYS = ("source", "expected_source", "doc")
 KW_KEYS = ("keywords", "expected_keywords", "answer_keywords")
 Q_KEYS = ("question", "q", "query")
-
 
 def _first(d, keys, default=None):
     for k in keys:
@@ -16,13 +15,11 @@ def _first(d, keys, default=None):
             return d[k]
     return default
 
-
 def load_questions(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     if isinstance(data, dict):
         data = data.get("questions", data)
     return data
-
 
 def is_relevant(chunk, q):
     src = _first(q, SRC_KEYS)
@@ -39,7 +36,6 @@ def is_relevant(chunk, q):
         ok = ok and any(k.lower() in low for k in kws)
     return ok
 
-
 def hit_at_k(index, questions, k=3):
     hits, misses = 0, []
     for q in questions:
@@ -50,7 +46,6 @@ def hit_at_k(index, questions, k=3):
         else:
             misses.append(text)
     return (hits / len(questions) if questions else 0.0), misses
-
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
@@ -76,7 +71,6 @@ def main(argv=None):
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     return results
-
 
 if __name__ == "__main__":
     main()
