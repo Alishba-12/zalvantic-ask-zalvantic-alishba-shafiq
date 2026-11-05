@@ -2,8 +2,8 @@ import argparse
 import json
 from pathlib import Path
 
-from .chunk import build_chunks, load_docs
-from .bm25 import BM25Index
+from .chunking import build_chunks, load_docs
+from .search import BM25Index
 
 SRC_KEYS = ("source", "expected_source", "doc")
 KW_KEYS = ("keywords", "expected_keywords", "answer_keywords")
