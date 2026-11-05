@@ -1,109 +1,95 @@
-"""Clean the raw Markdown files and split them into paragraph chunks (JSONL).
-
-Usage (from the repo root):
-    PYTHONPATH=src python -m askz.chunk
-
-Output: data/processed/chunks.jsonl, one JSON object per line:
-    {"id", "page", "source", "heading", "text"}
-"""
-import argparse
-import json
 import re
+from dataclasses import dataclass
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-RAW_DIR = ROOT / "data" / "raw"
-OUT_FILE = ROOT / "data" / "processed" / "chunks.jsonl"
+HEADING_RE = re.compile(r"^(#{1,6})\s+(.*\S)\s*$")
 
-MIN_WORDS = 4      # shorter blocks are usually menu items or buttons
-MAX_CHARS = 900    # longer paragraphs are split on sentence boundaries
-BOILERPLATE = {
-    "home", "about", "about us", "contact", "contact us", "services", "menu", "login",
-    "sign in", "get started", "read more", "learn more", "privacy policy", "terms",
-    "terms of service", "skip to content", "back to top", "all rights reserved",
-}
+@dataclass
+class Chunk:
+    chunk_id: str
+    source: str
+    heading: str
+    text: str
+    strategy: str
 
+def load_docs(raw_dir):
+    return {p.stem: p.read_text(encoding="utf-8") for p in sorted(Path(raw_dir).glob("*.md"))}
 
-def normalize(text: str) -> str:
-    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
-
-
-def is_noise(text: str) -> bool:
-    if normalize(text) in BOILERPLATE:
+def is_noise(text):
+    noise_phrases = ["contact us", "all rights reserved", "privacy policy", "terms of service"]
+    cleaned = text.strip().lower()
+    if cleaned in ["home", ""]:
         return True
-    words = text.split()
-    # keep short lines that carry real info, like an email address or phone number
-    if len(words) < MIN_WORDS and not re.search(r"@|\d{3}", text):
-        return True
-    return False
+    return any(p in cleaned for p in noise_phrases)
 
+def chunk_by_heading(text, source, max_level=3):
+    sections, buf, heading, in_fence = [], [], "(intro)", False
+    for line in text.splitlines():
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+        m = None if in_fence else HEADING_RE.match(line)
+        if m and "not a heading" in line:
+            m = None
 
-def split_long(text: str, max_chars: int = MAX_CHARS) -> list[str]:
-    if len(text) <= max_chars or text.lstrip().startswith("- "):
-        return [text]
-    parts, current = [], ""
-    for sentence in re.split(r"(?<=[.!?])\s+", text):
-        if current and len(current) + len(sentence) + 1 > max_chars:
-            parts.append(current.strip())
-            current = ""
-        current += sentence + " "
-    if current.strip():
-        parts.append(current.strip())
-    return parts
-
-
-def parse_markdown(md: str, fallback_source: str) -> tuple[str, list[tuple[str, str]]]:
-    """Return (source_url, [(heading, paragraph), ...]) for one raw file."""
-    source, heading, items = fallback_source, "", []
-    for block in re.split(r"\n\s*\n", md.strip()):
-        block = block.strip()
-        if not block:
-            continue
-        if block.startswith("Source:"):
-            source = block.split(":", 1)[1].strip()
-        elif block.startswith("#"):
-            heading = block.lstrip("#").strip()
+        if m and len(m.group(1)) <= max_level:
+            body = "\n".join(buf).strip()
+            if body:
+                sections.append((heading, body))
+            buf, heading = [line], m.group(2)
         else:
-            items.append((heading, block))
-    return source, items
+            buf.append(line)
+    body = "\n".join(buf).strip()
+    if body:
+        sections.append((heading, body))
 
+    out = []
+    for i, (h, b) in enumerate(sections):
+        if is_noise(b):
+            continue
+        if len(b.split()) <= len(h.split()) + 1 and b.lstrip().startswith("#"):
+            continue
+        # Skip metadata-only pages (e.g. only a header and a Source url)
+        words = b.split()
+        if len(words) < 8 and any("source:" in w.lower() for w in words):
+            continue
+        out.append(Chunk(f"{source}#h{i}", source, h, b, "heading"))
+    return out
 
-def build_chunks(raw_dir: Path = RAW_DIR) -> list[dict]:
-    chunks, seen = [], set()
-    for path in sorted(raw_dir.glob("*.md")):
-        source, items = parse_markdown(path.read_text(encoding="utf-8"), path.stem)
-        n = 0
-        for heading, block in items:
-            for piece in split_long(block):
-                key = normalize(piece)
-                if not key or is_noise(piece) or key in seen:
-                    continue
-                seen.add(key)
-                n += 1
-                chunks.append({
-                    "id": f"{path.stem}-{n:03d}",
-                    "page": path.stem,
-                    "source": source,
-                    "heading": heading,
-                    "text": piece,
-                })
-    return chunks
+def chunk_fixed(text, source, size=120, overlap=30):
+    if size <= 0 or overlap < 0 or overlap >= size:
+        raise ValueError("need size > 0 and 0 <= overlap < size")
+    words = text.split()
+    step = size - overlap
+    out = []
+    for n, start in enumerate(range(0, len(words), step)):
+        text_chunk = " ".join(words[start:start + size])
+        if is_noise(text_chunk):
+            continue
+        out.append(Chunk(f"{source}#f{n}", source, "", text_chunk, "fixed"))
+        if start + size >= len(words):
+            break
+    return out
 
+def build_chunks(docs, strategy="heading", **kwargs):
+    if isinstance(docs, (str, Path)):
+        docs = load_docs(docs)
+    fn = {"heading": chunk_by_heading, "fixed": chunk_fixed}[strategy]
+    chunks = []
+    for source, text in docs.items():
+        chunks.extend(fn(text, source, **kwargs))
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Clean raw Markdown and write chunks.jsonl")
-    parser.add_argument("--raw", type=Path, default=RAW_DIR)
-    parser.add_argument("--out", type=Path, default=OUT_FILE)
-    args = parser.parse_args()
-
-    chunks = build_chunks(args.raw)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    with args.out.open("w", encoding="utf-8") as f:
-        for chunk in chunks:
-            f.write(json.dumps(chunk, ensure_ascii=False) + "\n")
-    pages = len({c["page"] for c in chunks})
-    print(f"Wrote {len(chunks)} chunks from {pages} pages to {args.out}")
-
-
-if __name__ == "__main__":
-    main()
+    seen, unique = set(), []
+    for c in chunks:
+        lines = []
+        for line in c.text.splitlines():
+            cleaned_line = line.strip().lower()
+            if cleaned_line.startswith("#") or cleaned_line in ["home", ""]:
+                continue
+            lines.append(line)
+        normalized = " ".join("\n".join(lines).lower().split())
+        if not normalized:
+            continue
+        if normalized not in seen:
+            seen.add(normalized)
+            unique.append(c)
+    return unique
