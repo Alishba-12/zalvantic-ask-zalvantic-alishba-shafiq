@@ -48,6 +48,15 @@ Rules:
 """
 
 
+try:
+    from .guardrails import HARDENING_RULES, guarded_answer
+except ImportError:
+    from guardrails import HARDENING_RULES, guarded_answer
+
+# Week 6: add the security rules to the system prompt
+SYSTEM_PROMPT = SYSTEM_PROMPT + HARDENING_RULES
+
+
 def build_context(chunks):
     parts = []
     for i, c in enumerate(chunks, 1):
@@ -77,6 +86,11 @@ def answer(question, retriever, llm, k=5):
         return {"question": question, "answer": REFUSAL, "sources": [], "grounded": False}
     sources = [f"[{i}] {chunks[i - 1].get('source', 'unknown')}" for i in ids]
     return {"question": question, "answer": raw, "sources": sources, "grounded": True}
+
+
+def answer_guarded(question, retriever, llm, k=5, log_path=None):
+    """Week 6: input filter -> answer() -> output filter."""
+    return guarded_answer(question, lambda q: answer(q, retriever, llm, k), log_path=log_path)
 
 
 def format_answer(res):
