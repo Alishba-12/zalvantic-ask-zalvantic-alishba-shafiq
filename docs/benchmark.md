@@ -73,3 +73,6 @@ Why not the others:
 - Adding both embedding models together (0.818) was worse, so more retrievers is not always better.
 
 Honest caveat: there are only 44 questions, so one question is about 2.3 points. The differences between the top setups are 1 to 2 questions and could be noise. I would check this again once the knowledge base grows.
+
+## Week 5: grounded generation
+20 questions checked by hand: {'ok': 20}. Details in docs/week5_manual_check.md.
