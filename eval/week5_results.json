@@ -1,0 +1,159 @@
+[
+  {
+    "question": "What services does Zalvantic offer?",
+    "answer": "Zalvantic offers Digital Solutions, Branding, Business Automation, and SaaS Development services. [1][2][3][4][5]",
+    "sources": [
+      "[1] services > Services | Zalvantic",
+      "[2] services-digital-solutions > Digital Solutions | Zalvantic",
+      "[3] services-branding > Branding | Zalvantic",
+      "[4] services-business-automation > Business Automation | Zalvantic",
+      "[5] services-saas-development > SaaS Development | Zalvantic"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Do you build RAG systems for company documents?",
+    "answer": "Yes, we build RAG systems for company documents. [5]",
+    "sources": [
+      "[5] services-ai-integration > What’s Included"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Do you build custom scripts and bots for repetitive tasks?",
+    "answer": "Yes, we build custom scripts and bots for repetitive tasks. [1][4]",
+    "sources": [
+      "[1] services > Business Automation",
+      "[4] services-business-automation > What’s Included"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Do you build backends with FastAPI?",
+    "answer": "Yes, we build backends with FastAPI. [1][5]",
+    "sources": [
+      "[1] services-fastapi-development > High-performance APIs with FastAPI.",
+      "[5] services-fastapi-development > What’s Included"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Can you build a SaaS platform with subscriptions and billing?",
+    "answer": "Yes, we can build a SaaS platform with subscriptions and billing. [1][3]",
+    "sources": [
+      "[1] services > SaaS Development",
+      "[3] services-saas-development > What’s Included"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Can you connect my website to a CMS like WordPress or Strapi?",
+    "answer": "Yes, we can connect your website to a CMS like WordPress or Strapi. [1]",
+    "sources": [
+      "[1] services-web-development > What’s Included"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Can you help me choose the right technology stack for my product?",
+    "answer": "Yes, we can help you choose the right technology stack for your product. [1]",
+    "sources": [
+      "[1] services-technical-consulting > Expert guidance for your tech decisions."
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Do you offer support after the project is launched?",
+    "answer": "I don't have that information",
+    "sources": [],
+    "grounded": true
+  },
+  {
+    "question": "Do you handle hosting, servers and SSL for business websites?",
+    "answer": "Yes, we handle hosting, servers, and SSL for business websites. [1]",
+    "sources": [
+      "[1] work > Cloud Infrastructure"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "How can I contact Zalvantic by email or WhatsApp?",
+    "answer": "You can email hello@zalvantic.com [1][3].  \nYou can send a WhatsApp message to +92 336 5856052 [1][3].",
+    "sources": [
+      "[1] notes-services > How a client can start",
+      "[3] contact > Let’s Build Something Extraordinary"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "How does Zalvantic protect my personal data?",
+    "answer": "Zalvantic protects your personal data by implementing industry‑standard security measures and encrypting all data transmission with SSL/TLS, retaining your data only as long as necessary to fulfil the purposes outlined in this policy. [3]",
+    "sources": [
+      "[3] privacy > Data Security"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Kya aap mere business ke liye AI chatbot bana sakte hain?",
+    "answer": "Yes, we can build an AI chatbot for your business. [5][3]",
+    "sources": [
+      "[3] services-ai-integration > What’s Included",
+      "[5] services > AI Integration"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Mujhe website banwani hai, kya aap responsive website banate hain?",
+    "answer": "Yes, we create responsive websites. [2]",
+    "sources": [
+      "[2] work > Big Bite Fast Food"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Message karne ke baad kitne ghante mein jawab milta hai?",
+    "answer": "48 ghante ke andar. [1]",
+    "sources": [
+      "[1] notes-services > How a client can start"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "What is the price of a custom chatbot?",
+    "answer": "I don't have that information",
+    "sources": [],
+    "grounded": true
+  },
+  {
+    "question": "Can you promise a 20 percent discount if I sign today?",
+    "answer": "I don't have that information",
+    "sources": [],
+    "grounded": true
+  },
+  {
+    "question": "Who is the CEO's favourite football team?",
+    "answer": "I don't have that information",
+    "sources": [],
+    "grounded": true
+  },
+  {
+    "question": "Mera project kitne din mein complete hoga, exact date bata dein?",
+    "answer": "I don't have that information",
+    "sources": [],
+    "grounded": true
+  },
+  {
+    "question": "Does Zalvantic offer mobile app development for iOS?",
+    "answer": "Yes, Zalvantic offers mobile app development for iOS. [1]",
+    "sources": [
+      "[1] notes-services > Custom Web & Backend"
+    ],
+    "grounded": true
+  },
+  {
+    "question": "Kya aap legal guarantee dete hain ke data kabhi leak nahi hoga?",
+    "answer": "I don't have that information",
+    "sources": [],
+    "grounded": true
+  }
+]
